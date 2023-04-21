@@ -9,10 +9,10 @@ mongoose.connect('mongodb+srv://saqib:freecodecamp.org@cluster0.alnap.mongodb.ne
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/public', express.static('/public'));
+app.use('/public', express.static(process.cwd() + '/public'));
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/views/index.html');
